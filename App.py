@@ -2,12 +2,14 @@ from Game import Game
 
 HUMAN = 0
 AI = 1
+MONTECARLO = 2
+RANDOM = -1
 WHITE = True
 BLACK = False
 
 def main():
 
-    g = Game(AI,AI)
+    g = Game(MONTECARLO, AI)
     g.train()
     g.change_player(WHITE)
     g.run()

@@ -5,13 +5,18 @@ class Board():
 
     
 
-    def __init__(self) -> None:
+    def __init__(self, pieces = None) -> None:
         self.pieces = []
-        # adding Pawns to the board
-        for i in range(3):
-            pass
-            self.pieces.append(Pieces.Paw((i, 0), True))
-            self.pieces.append(Pieces.Paw((i, 2), False))
+        
+        if not pieces:
+            # adding Pawns to the board
+            for i in range(3):
+                pass
+                self.pieces.append(Pieces.Paw((i, 0), True))
+                self.pieces.append(Pieces.Paw((i, 2), False))
+        else:
+            for piece in pieces:
+                self.pieces.append(Pieces.Paw(piece.pos, piece.white))
 
 
     def moves(self, piece):
@@ -22,7 +27,6 @@ class Board():
             if p.pos == place:
                 return colored(p.get_name().upper(), 'white') if p.white else colored(p.get_name().upper(), 'grey')
         return ' '
-
 
     def __repr__(self) -> str:
         out = ''
