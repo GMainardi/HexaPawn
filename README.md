@@ -18,6 +18,6 @@ The board are mapped in number from 1 to 9 as your numped
 ## Playing the game
 To play de game you just need to use the commando:
 
-> python App.py.
+> python App.py
 
 and follow the terminal's instructions
