@@ -44,7 +44,7 @@ class Game():
             winner = self.run()
 
             if not self.human_playing():
-                win = 'whites' if winner else 'blacks'
+                win = 'whites' if winner == self.WHITE else 'blacks'
                 print(f'game {i} winner: {win}')
 
             if type(self.white) == Players.AI and winner != self.WHITE:
@@ -62,7 +62,7 @@ class Game():
             self.board = Board()
         
         if not self.human_playing():
-            print('at this point the white AI dosen\'t have any possible move that will result in a win, so the black AI is invencible, try by yourself' )
+            print('at this point the white AI dosen\'t have any possible move that will result in a win but the black AI may not learn all possible cases do you can beat the black AI?' )
 
     def run(self):
 
@@ -70,10 +70,12 @@ class Game():
         while not end:
 
             end = self.play(self.WHITE)
+
             if end == -1:
                 return self.BLACK
             if end:
                 return self.WHITE
+
             end = self.play(self.BLACK)
             if end == -1:
                 return self.WHITE
@@ -134,12 +136,12 @@ class Game():
                     return True
                 blacks += 1
         
-        if whites == 0 or not black_moves:
+        if whites == 0 or not white_moves:
             self.print('Blacks wins!')
             return True
 
-        if blacks == 0 or not white_moves:
-            self.print('White wins!')
+        if blacks == 0 or not black_moves:
+            self.print('Blacks wins!')
             return True
         
     def human_playing(self) -> bool:
