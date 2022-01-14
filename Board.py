@@ -40,11 +40,12 @@ class Board():
         print('Welcome to the HexaPawn game, that game have 6 pieces with the moves similars to pawn in chess game')
         print('Each player has 3 pawns and the goal is reach the other side of the board, or capture all enimy pawns')
         print("The board is mapped with numbers from 1 to 9 as your numpad keys: ")
-        
+        i = 1
         for x in range(3):
             print('+---'*3 + '+')
             for y in range(3):
-                print(f'| {x+(3*y)} ', end='')
+                print(f'| {i} ', end='')
+                i +=1
             print('|')
         print('+---'*3 + '+')
         print()
